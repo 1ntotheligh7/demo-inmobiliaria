@@ -9,8 +9,8 @@ export function formatPrecio(precio: number, tipo: TipoOperacion): string {
   return tipo === "alquiler" ? `${f}/mes` : f;
 }
 
-export function buildWhatsAppUrl(codigoWhatsApp: string, idPropiedad: string): string {
-  const numero = codigoWhatsApp.replace(/\D/g, "");
+export function buildWhatsAppUrl(idPropiedad: string): string {
+  const numero = (process.env.NEXT_PUBLIC_WA_NUMBER ?? "50760000000").replace(/\D/g, "");
   const mensaje = encodeURIComponent(
     `Hola, me interesa la propiedad ${idPropiedad}. ¿Pueden darme más información?`
   );

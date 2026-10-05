@@ -2,17 +2,12 @@ import { buildWhatsAppUrl } from "@/lib/utils";
 import { MessageCircle } from "lucide-react";
 
 interface Props {
-  codigoWhatsApp: string;
   idPropiedad: string;
   className?: string;
 }
 
-export default function BotonWhatsApp({
-  codigoWhatsApp,
-  idPropiedad,
-  className = "",
-}: Props) {
-  const url = buildWhatsAppUrl(codigoWhatsApp, idPropiedad);
+export default function BotonWhatsApp({ idPropiedad, className = "" }: Props) {
+  const url = buildWhatsAppUrl(idPropiedad);
   return (
     <a
       href={url}

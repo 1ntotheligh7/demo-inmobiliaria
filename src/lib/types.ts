@@ -16,7 +16,6 @@ export interface Propiedad {
   imagenes: string[];
   lat: number;
   lng: number;
-  codigoWhatsApp: string;
 }
 
 export interface FiltrosPropiedades {

@@ -96,7 +96,6 @@ export default async function FichaPage({
           </p>
         </div>
         <BotonWhatsApp
-          codigoWhatsApp={p.codigoWhatsApp}
           idPropiedad={p.id}
           className="min-w-[220px]"
         />
