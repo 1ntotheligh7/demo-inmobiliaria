@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-selva-oscuro: #183328;
+  --color-selva-medio: #2c6b4f;
+  --color-selva-claro: #3d8c65;
+  --color-niebla: #8fa898;
+  --color-oro: #c9a84c;
+  --color-piedra: #f0ebe3;
+  --color-tinta: #0f1a14;
+  --color-blanco-piedra: #fafaf8;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+
+  --radius-card: 0.75rem;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 2px 12px 0 rgba(15, 26, 20, 0.08);
+  --shadow-card-hover: 0 8px 32px 0 rgba(15, 26, 20, 0.14);
+}
+
+@layer base {
+  html {
+    /* scroll-behavior handled by Lenis */
+  }
+  body {
+    background-color: var(--color-blanco-piedra);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+  }
+  .leaflet-container {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@keyframes wa-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.wa-flotante {
+  position: fixed;
+  right: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 9999px;
+  background-color: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+  animation: wa-appear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-flotante:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-flotante {
+    animation: none;
+  }
+}
+
+@layer utilities {
+  .text-precio {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .text-label {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+  }
+  .text-hero {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .text-display {
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    line-height: 1.1;
+  }
+  .text-heading {
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    line-height: 1.25;
+  }
+  .bg-hero-gradient {
+    background: linear-gradient(to bottom, rgba(24, 51, 40, 0.15) 0%, rgba(24, 51, 40, 0.65) 100%);
+  }
+  .bg-card-gradient {
+    background: linear-gradient(to top, rgba(15, 26, 20, 0.7) 0%, transparent 50%);
+  }
+}
