@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? "50760000000";
+const WA_NUMBER = (process.env.NEXT_PUBLIC_WA_NUMBER ?? "50760000000").replace(/\D/g, "");
 const MENSAJE_GENERAL = "Hola, vi su página web y me gustaría más información";
 
 function buildUrl(mensaje: string) {
